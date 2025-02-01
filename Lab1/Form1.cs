@@ -27,12 +27,12 @@ namespace Lab1
             Text = "Лабораторная работа 1";
             Size = new Size(800, 600);
 
-            // Обработка изменения размера формы
+      
             this.SizeChanged += MainForm_SizeChanged;
-            // Обработка движения мыши по форме
+
             this.MouseMove += MainForm_MouseMove;
 
-            // Кнопка
+
             button = new Button
             {
                 Text = "Кнопка",
@@ -42,7 +42,7 @@ namespace Lab1
             button.MouseEnter += (s, e) => statusLabel.Text = "Навели мышь на кнопку";
             button.MouseLeave += (s, e) => statusLabel.Text = "Покинули кнопку";
 
-            // TextBox
+            
             textBox = new TextBox
             {
                 Location = new Point(20, 60),
@@ -51,7 +51,7 @@ namespace Lab1
             textBox.TextChanged += (s, e) => label.Text = textBox.Text;
             textBox.KeyDown += (s, e) => statusLabel.Text = $"Нажата клавиша: {e.KeyCode}";
 
-            // Label
+            
             label = new Label
             {
                 Text = "Текст",
@@ -59,7 +59,7 @@ namespace Lab1
                 Width = 150
             };
 
-            // CheckBox
+            
             checkBox = new CheckBox
             {
                 Text = "Чекбокс",
@@ -71,7 +71,7 @@ namespace Lab1
                 statusLabel.Text = $"Чекбокс {(checkBox.Checked ? "отмечен" : "не отмечен")}";
             };
 
-            // RadioButton
+           
             radioButton = new RadioButton
             {
                 Text = "Радиокнопка",
@@ -80,7 +80,7 @@ namespace Lab1
             radioButton.CheckedChanged += (s, e) =>
                 statusLabel.Text = $"Радиокнопка {(radioButton.Checked ? "выбрана" : "не выбрана")}";
 
-            // ComboBox
+            
             comboBox = new ComboBox
             {
                 Location = new Point(20, 220),
@@ -90,7 +90,7 @@ namespace Lab1
             comboBox.SelectedIndexChanged += (s, e) =>
                 statusLabel.Text = $"Выбран: {comboBox.SelectedItem}";
 
-            // ListBox
+            
             listBox = new ListBox
             {
                 Location = new Point(20, 260),
@@ -101,7 +101,7 @@ namespace Lab1
             listBox.SelectedIndexChanged += (s, e) =>
                 statusLabel.Text = $"Выбран из списка: {listBox.SelectedItem}";
 
-            // TabControl
+           
             tabControl = new TabControl
             {
                 Location = new Point(200, 20),
@@ -113,7 +113,7 @@ namespace Lab1
             tabControl.SelectedIndexChanged += (s, e) =>
                 statusLabel.Text = $"Активная вкладка: {tabControl.SelectedTab.Text}";
 
-            // Timer
+            
             timer = new System.Windows.Forms.Timer { Interval = 1000 };
             timer.Tick += (s, e) =>
             {
@@ -122,7 +122,7 @@ namespace Lab1
             };
             timer.Start();
 
-            // Panel
+            
             panel = new Panel
             {
                 Location = new Point(200, 140),
@@ -132,7 +132,7 @@ namespace Lab1
             };
             panel.Click += (s, e) => statusLabel.Text = "Клик по панели";
 
-            // TrackBar
+           
             trackBar = new TrackBar
             {
                 Location = new Point(200, 260),
@@ -141,7 +141,7 @@ namespace Lab1
             trackBar.Scroll += (s, e) =>
                 statusLabel.Text = $"Значение TrackBar: {trackBar.Value}";
 
-            // ProgressBar
+           
             progressBar = new ProgressBar
             {
                 Location = new Point(200, 300),
@@ -149,7 +149,7 @@ namespace Lab1
                 Value = 50
             };
 
-            // NumericUpDown
+            
             numericUpDown = new NumericUpDown
             {
                 Location = new Point(200, 340),
@@ -158,7 +158,7 @@ namespace Lab1
             numericUpDown.ValueChanged += (s, e) =>
                 statusLabel.Text = $"NumericUpDown: {numericUpDown.Value}";
 
-            // PictureBox
+            
             pictureBox = new PictureBox
             {
                 Location = new Point(400, 20),
@@ -171,7 +171,7 @@ namespace Lab1
             pictureBox.MouseLeave += (s, e) => pictureBox.BackColor = Color.White;
             pictureBox.Click += (s, e) => statusLabel.Text = "Нажали на PictureBox";
 
-            // GroupBox с интерактивными возможностями
+           
             groupBox = new GroupBox
             {
                 Location = new Point(400, 140),
@@ -180,12 +180,11 @@ namespace Lab1
                 Text = "Группа",
                 BackColor = Color.Transparent
             };
-            // События для GroupBox: при наведении меняется фон, при клике выводится сообщение
+          
             groupBox.MouseEnter += (s, e) => groupBox.BackColor = Color.LightYellow;
             groupBox.MouseLeave += (s, e) => groupBox.BackColor = Color.Transparent;
             groupBox.Click += (s, e) => statusLabel.Text = "Кликнули по GroupBox";
 
-            // Внутри GroupBox добавляем кнопку для дополнительной интерактивности
             innerGroupButton = new Button
             {
                 Text = "Внутренняя кнопка",
@@ -200,11 +199,11 @@ namespace Lab1
             };
             groupBox.Controls.Add(innerGroupButton);
 
-            // Дополнительный Label для отображения статуса событий, располагаем его чуть ниже
+          
             statusLabel = new Label
             {
                 Text = "Статус: готов",
-                Location = new Point(20, 520),  // изменили координату Y, чтобы разместить ниже
+                Location = new Point(20, 520),  
                 Width = 350
             };
 
@@ -216,13 +215,12 @@ namespace Lab1
             });
         }
 
-        // Обработчик изменения размера формы
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
             statusLabel.Text = $"Размер формы: {this.Width}x{this.Height}";
         }
 
-        // Обработчик движения мыши по форме
+       
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
             statusLabel.Text = $"Координаты мыши: X={e.X}, Y={e.Y}";
@@ -230,7 +228,7 @@ namespace Lab1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Ваш код, который должен выполниться при загрузке формы.
+           
         }
 
     }
